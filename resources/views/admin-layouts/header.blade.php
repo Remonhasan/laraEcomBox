@@ -203,7 +203,7 @@
         <li class="dropdown dropdown-user">
             <a class="dropdown-toggle" data-toggle="dropdown">
                 <img src="assets/images/placeholder.jpg" alt="">
-                <span>Victoria</span>
+                <span>{{ Auth::guard('admin')->user()->name }}</span>
                 <i class="caret"></i>
             </a>
 
@@ -213,7 +213,7 @@
                 <li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
                 <li class="divider"></li>
                 <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
-                <li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+                <li><a href="{{ route('admin.logout') }}"><i class="icon-switch2"></i> Logout</a></li>
             </ul>
         </li>
     </ul>

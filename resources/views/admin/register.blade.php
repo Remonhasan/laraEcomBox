@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>e-Dove | Admin Login</title>
+    <title>e-Dove | Admin Registration</title>
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
@@ -85,13 +85,13 @@
                 <div class="content">
 
                     <!-- Simple login form -->
-                    <form action="{{ route('admin.login')}}" method="post">
+                    <form action="{{ route('admin.register')}}" method="post">
 						@csrf
                         <div class="panel panel-body login-form">
                             <div class="text-center">
                                 <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i>
                                 </div>
-                                <h5 class="content-group">Login to your account <small class="display-block">Enter
+                                <h5 class="content-group">Register a new account <small class="display-block">Enter
                                         your credentials below</small></h5>
 
                                 <div class="content-group">
@@ -103,26 +103,35 @@
                             </div>
 
                             <div class="form-group has-feedback has-feedback-left">
-                                <input type="email"  name="email" class="form-control" placeholder="Email">
+                                <input type="text"  name="name" class="form-control"  autocomplete="off" placeholder="Name">
+                                <div class="form-control-feedback">
+                                    <i class="icon-user text-muted"></i>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback has-feedback-left">
+                                <input type="email"  name="email" class="form-control" autocomplete="off" placeholder="Email">
                                 <div class="form-control-feedback">
                                     <i class="icon-user text-muted"></i>
                                 </div>
                             </div>
 
                             <div class="form-group has-feedback has-feedback-left">
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password" class="form-control" autocomplete="off" placeholder="Password">
                                 <div class="form-control-feedback">
                                     <i class="icon-lock2 text-muted"></i>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">Log in <i
+                                <button type="submit" class="btn btn-primary btn-block">Register<i
                                         class="icon-circle-right2 position-right"></i></button>
                             </div>
 
                             <div class="text-center">
                                 <a href="login_password_recover.html">Forgot password?</a>
+                                <span>
+                                    <a href="{{ route('admin.login')}}">Login</a>
+                                </span>
                             </div>
                         </div>
                     </form>
