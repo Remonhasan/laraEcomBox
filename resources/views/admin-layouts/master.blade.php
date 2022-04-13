@@ -39,7 +39,7 @@
 	<script type="text/javascript" src="{{ asset('admin/assets/js/pages/dashboard.js') }}"></script>
 	<!-- /theme JS files -->
 
-
+	@yield('styles')
 </head>
 
 <body>
@@ -95,7 +95,7 @@
 					<!-- Footer -->
 					@include('admin-layouts.footer')
 					<!-- /footer -->
-
+					
 				</div>
 				<!-- /content area -->
 
@@ -107,6 +107,6 @@
 
 	</div>
 	<!-- /page container -->
-
+	@yield('scripts')
 </body>
 </html>
