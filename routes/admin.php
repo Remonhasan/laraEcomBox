@@ -35,6 +35,7 @@ Route::prefix(Request::segment(1) . config('app.admin_route_prefix'))->middlewar
 
         Route::prefix('category')->group(function () {
             Route::get('/list',[CategoryController::class,'index'])->name('category.list');
+            Route::get('/create',[CategoryController::class,'create'])->name('category.create');
         });
     });
 
