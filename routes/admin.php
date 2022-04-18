@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,15 @@ Route::prefix(Request::segment(1) . config('app.admin_route_prefix'))->middlewar
             Route::get('/edit/{subcategoryId?}', [SubCategoryController::class, 'edit'])->name('subcategory.edit');
             Route::put('/update/{subcategoryId?}', [SubCategoryController::class, 'update'])->name('subcategory.update');
             Route::delete('/delete/{subcategoryId?}', [SubCategoryController::class, 'delete'])->name('subcategory.delete');
+        });
+
+        Route::prefix('product')->group(function () {
+            Route::get('/list', [ProductController::class, 'index'])->name('product.list');
+            Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+            Route::post('/store', [ProductController::class, 'store'])->name('product.store');
+            Route::get('/edit/{productId?}', [ProductController::class, 'edit'])->name('product.edit');
+            Route::put('/update/{productId?}', [ProductController::class, 'update'])->name('product.update');
+            Route::delete('/delete/{productId?}', [ProductController::class, 'delete'])->name('product.delete');
         });
     });
 
