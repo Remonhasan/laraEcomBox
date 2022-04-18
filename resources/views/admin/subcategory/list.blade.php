@@ -6,10 +6,10 @@
 @section('admin_content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Categories</h1>
+            <h1 class="mt-4">SubCategories</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item">{{ __('Category') }}</li>
-                <li class="breadcrumb-item active"><a href="{{ route('category.list') }}">{{ __('List') }}</a></li>
+                <li class="breadcrumb-item">{{ __('SubCategory') }}</li>
+                <li class="breadcrumb-item active"><a href="{{ route('subcategory.list') }}">{{ __('List') }}</a></li>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
@@ -27,7 +27,7 @@
                             DataTable Example
                         </div>
                         <div class="col-md-6 d-flex justify-content-end">
-                            <a href="{{ route('category.create') }}" type="button" class="btn btn-primary"><i
+                            <a href="{{ route('subcategory.create') }}" type="button" class="btn btn-primary"><i
                                     class="fas fa-plus me-1"></i>{{ __('Add') }}</a>
                         </div>
                     </div>
@@ -55,25 +55,25 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($allCategories as $key => $category)
+                            @foreach ($allSubcategories as $key => $subcategory)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $category->name_en }}</td>
-                                    <td>{{ $category->name_bn }}</td>
-                                    <td>{{ $category->is_active }}</td>
-                                    <td>{{ $category->created_at }}</td>
+                                    <td>{{ $subcategory->name_en }}</td>
+                                    <td>{{ $subcategory->name_bn }}</td>
+                                    <td>{{ $subcategory->is_active }}</td>
+                                    <td>{{ $subcategory->created_at }}</td>
                                     <td>
                                         <span>
                                             <a href="" type="button" class="btn-sm btn-primary"><i
                                                     class="fas fa-eye me-1"></i>{{ __('View') }}</a>
                                         </span>
                                         <span>
-                                            <a href="{{ route('category.edit', $category->id) }}" type="button"
+                                            <a href="{{ route('subcategory.edit', $subcategory->id) }}" type="button"
                                                 class="btn-sm btn-info"><i
                                                     class="fas fa-pen me-1"></i>{{ __('Edit') }}</a>
                                         </span>
                                         <span>
-                                            <form action="{{ route('category.delete', $category->id) }}" method="post">
+                                            <form action="{{ route('subcategory.delete', $subcategory->id) }}" method="post">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn-sm btn-danger"><i

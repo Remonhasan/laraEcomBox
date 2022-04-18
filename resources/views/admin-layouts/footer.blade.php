@@ -1,3 +1,7 @@
-<div class="footer text-muted">
-    &copy; 2022. <a href="#">{{ __('Developed') }}</a> {{ __('by') }} <a href="http://themeforest.net/user/Kopyov" target="_blank">{{ __('Remon Hasan Apu') }}</a>
-</div>
+<footer class="py-4 bg-light mt-auto">
+  <div class="container-fluid px-4">
+      <div class="d-flex align-items-center justify-content-between small">
+          <div class="text-muted">Copyright &copy; {{ __('Remon Hasan Apu') }}</div>
+      </div>
+  </div>
+</footer>
