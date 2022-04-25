@@ -63,7 +63,7 @@
                                     <td>{{ $product->name_en }}</td>
                                     <td>{{ $product->name_bn }}</td>
                                     <td>
-                                        <img class="img-responsive thumbnail" src="{{ Storage::disk('public')->url('product/'.$product->image) }}" alt="">
+                                        <img class="img-responsive thumbnail" src="{{ asset('storage/product/' . $product->image )}}" alt="">
                                     </td>
                                     <td>{{ $product->is_active }}</td>
                                     <td>{{ $product->created_at }}</td>
