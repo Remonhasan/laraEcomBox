@@ -15,6 +15,10 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 {{ __('SubCategory') }}
             </a>
+            <a class="nav-link" href="{{ route('product.list') }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                {{ __('Products') }}
+            </a>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
                 aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

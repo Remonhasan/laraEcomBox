@@ -6,9 +6,9 @@
 @section('admin_content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Products</h1>
+            <h1 class="mt-4">{{ __('Products') }}</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item">{{ __('Product') }}</li>
+                <li class="breadcrumb-item">{{ __('Products') }}</li>
                 <li class="breadcrumb-item active"><a href="{{ route('product.list') }}">{{ __('List') }}</a></li>
                 <li class="breadcrumb-item active">{{ __('Add') }}</li>
             </ol>
@@ -135,7 +135,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-6">
-                                        <label for="is-stock" class="mb-2 mt-2">{{ __('Status') }}</label>
+                                        <label for="is-stock" class="mb-2 mt-2">{{ __('Available Status') }}</label>
                                         <select name="is_stock" class="form-control" id="isStock">
                                             <option value="1">{{ __('Stock') }}</option>
                                             <option value="0">{{ __('Out of Stock') }}</option>

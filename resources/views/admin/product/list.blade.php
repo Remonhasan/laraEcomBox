@@ -6,9 +6,9 @@
 @section('admin_content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Products</h1>
+            <h1 class="mt-4">{{ __('Products') }}</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item">{{ __('Product') }}</li>
+                <li class="breadcrumb-item">{{ __('Products') }}</li>
                 <li class="breadcrumb-item active"><a href="{{ route('product.list') }}">{{ __('List') }}</a></li>
             </ol>
             <div class="card mb-4">
@@ -27,7 +27,7 @@
                             DataTable Example
                         </div>
                         <div class="col-md-6 d-flex justify-content-end">
-                            <a href="{{ route('subcategory.create') }}" type="button" class="btn btn-primary"><i
+                            <a href="{{ route('product.create') }}" type="button" class="btn btn-primary"><i
                                     class="fas fa-plus me-1"></i>{{ __('Add') }}</a>
                         </div>
                     </div>

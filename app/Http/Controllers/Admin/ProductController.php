@@ -47,6 +47,7 @@ class ProductController extends Controller
             {
                 Storage::disk('public')->makeDirectory('product');
             }
+            
 
             $request->image->move(public_path('product', $productImageName));
 

@@ -5,6 +5,7 @@
     "Categories" : "Categories",
     "Add" : "Add",
     "SL" : "SL",
+    "List" : "List",
     "Name (In English)" : "Name (In English)",
     "Name (In Bangla)" : "Name (In Bangla)",
     "Is Active" : "Is Active",
@@ -21,6 +22,15 @@
     "Register" : "Register",
     "Developed" : "Developed",
     "by" : "by",
-    "Remon Hasan Apu" : "Remon Hasan Apu"
+    "Remon Hasan Apu" : "Remon Hasan Apu",
+
+    "______COMMENT_2" : "Products",
+    "Product" : "Product",
+    "Products" : "Products",
+    "Image" : "Image",
+    "Is Active?" : "Is Active?",
+    "View" : "View",
+    "Edit" : "Edit",
+    "Delete" : "Delete"
 
 }
