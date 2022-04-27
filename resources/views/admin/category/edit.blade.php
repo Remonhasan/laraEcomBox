@@ -47,7 +47,7 @@
                             <label for="exampleFormControlSelect1" class="mb-2">{{ __('Status') }}</label>
                             <select name="is_active" class="form-control" id="exampleFormControlSelect1">
                               <option value="1" {{ 1 == $category->is_active ? 'selected="selected"' : '' }}>{{ __('Active') }}</option>
-                              <option value="0" {{ 0 == $category->is_active ? 'selected="selected"' : '' }}>{{ __('InActive') }}</option>
+                              <option value="0" {{ 0 == $category->is_active ? 'selected="selected"' : '' }}>{{ __('Inactive') }}</option>
                             </select>
                           </div>
                       </div>

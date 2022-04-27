@@ -1,9 +1,14 @@
 {
+    "______COMMENT_0" : "Basic",
+    "Delete" : "মুছুন",
+
+    "______COMMENT_1" : "Category",
+
     "Name (In English)" : "নাম (ইংরেজীতে)",
     "Laravel" : "লারাভেল",
     "Category" : "ক্যাটেগরি",
-    "Subcategory" : "সাব ক্যাটেগরি",
-    "Subcategories" : "সাব ক্যাটেগরিসমূহ",
+    "SubCategory" : "সাব ক্যাটেগরি",
+    "SubCategories" : "সাব ক্যাটেগরিসমূহ",
     "Categories" : "ক্যাটেগরিসমূহ",
     "Add" : "যোগ করুন",
     "SL" : "ক্রমিক নং",
@@ -29,6 +34,7 @@
     "Remon Hasan Apu" : "রিমন হাছান অপু",
 
     "______COMMENT_2" : "Products",
+    
     "Product" : "পণ্য",
     "Products" : "পণ্যসমূহ",
     "Image" : "ছবি",
