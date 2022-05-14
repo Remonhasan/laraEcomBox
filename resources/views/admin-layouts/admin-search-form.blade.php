@@ -39,15 +39,15 @@ $_count = count(array_filter($_filter_params, 'strlen'));
 
                 <?php
                 /**
-                                                 * ------------------------------------------------------
-                                                 * PLACEHOLDER HOOK: admin_search_form_body
-                                                 * ------------------------------------------------------
-                                                 *
-                                                 * Pass the content to display inside the search form
-                                                 * from the list/grid page using the
-                                                 * @section('admin_search_form_body')
-                                                 * ------------------------------------------------------
-                                                 */
+                    * ------------------------------------------------------
+                     * PLACEHOLDER HOOK: admin_search_form_body
+                     * ------------------------------------------------------
+                    *
+                    * Pass the content to display inside the search form
+                    * from the list/grid page using the
+                    * @section('admin_search_form_body')
+                    * ------------------------------------------------------
+                     */
                 ?>
                 @yield('admin_search_form_body')
 
