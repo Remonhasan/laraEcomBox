@@ -14,6 +14,12 @@ class Category extends Model
 
     protected $fillable = ['name_en', 'name_bn', 'is_active'];
 
+    /**
+     * Get all Categories. Allowed pagination and Search.
+     *
+     * @param  mixed $args
+     * @return void
+     */
     public static function getCategories($args = array())
     {
         $lang = config('app.locale');
