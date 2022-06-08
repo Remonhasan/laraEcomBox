@@ -10,11 +10,37 @@ use Brian2694\Toastr\Facades\Toastr;
 
 class SubCategoryController extends Controller
 {
-    public function index ()
+     /**
+     * Display the list of Subcategory.
+     *
+     * @return void
+     */
+    public function index()
     {
         $data = [];
-        $data['allSubcategories'] = SubCategory::all();
-        return view('admin.subcategory.list')->with($data);
+
+        $itemsPerPage = itemsPerPage();
+
+        $subcategoryModel = new SubCategory();
+        $data['subcategoryModel'] = $subcategoryModel;
+
+        $args = array(
+            'items_per_page' => $itemsPerPage,
+            'paginate' => true,
+        );
+
+        // Push Filter/Search Parameters.
+        $args = filterParams(
+            $args,
+            array(
+                'name' => 'name',
+                'is_active' => 'is_active',
+            )
+        );
+
+        $data['subcategories'] = $subcategoryModel->getSubcategories($args);
+
+        return view('admin.subcategory.list', compact('itemsPerPage'))->with($data);
     }
 
     public function create ()
