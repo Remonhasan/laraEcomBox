@@ -12,23 +12,23 @@
                 <div class="col-md-6">
                     <i class="fas fa-plus me-1"></i>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item">{{ __('Category') }}</li>
-                        <li class="breadcrumb-item active"><a href="{{ route('category.list') }}">{{ __('List') }}</a>
+                        <li class="breadcrumb-item">{{ __('Subcategory') }}</li>
+                        <li class="breadcrumb-item active"><a href="{{ route('subcategory.list') }}">{{ __('List') }}</a>
                         </li>
                     </ol>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
-                    <a href="{{ route('category.create') }}" type="button" class="btn-sm btn-primary"><i
+                    <a href="{{ route('subcategory.create') }}" type="button" class="btn-sm btn-primary"><i
                             class="fas fa-plus me-1"></i>{{ __('Add') }}</a>
                 </div>
             </div>
 
 
-            @if (!$categories->isEmpty() || filter_input(INPUT_GET, 'filter'))
-                @include('admin.category.search')
+            @if (!$subcategories->isEmpty() || filter_input(INPUT_GET, 'filter'))
+                @include('admin.subcategory.search')
             @endif
 
-            @if (!$categories->isEmpty())
+            @if (!$subcategories->isEmpty())
                 <div class="card mb-4">
                     <table class="table table-hover table-striped mb-0">
                         <thead>
@@ -52,19 +52,19 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($categories as $key => $category)
+                            @foreach ($subcategories as $key => $subcategory)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $category->name_en }}</td>
-                                    <td>{{ $category->name_bn }}</td>
+                                    <td>{{ $subcategory->name_en }}</td>
+                                    <td>{{ $subcategory->name_bn }}</td>
                                     <td>
-                                        @if ($category->is_active === 1)
+                                        @if ($subcategory->is_active === 1)
                                             <button class="btn-xs btn-success">{{ __('Active') }}</button>
-                                        @elseif($category->is_active === 0)
+                                        @elseif($subcategory->is_active === 0)
                                             <button class="btn-xs btn-info">{{ __('Inactive') }}</button>
                                         @endif
                                     </td>
-                                    <td>{{ $category->created_at }}</td>
+                                    <td>{{ $subcategory->created_at }}</td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
@@ -78,12 +78,12 @@
                                                     <i class="fa-solid fa-eye"></i> {{ __('View') }}
                                                 </a>
                                                 <div class="dropdown-divider"></div>
-                                                <a href="{{ route('category.edit', $category->id) }}"
+                                                <a href="{{ route('subcategory.edit', $subcategory->id) }}"
                                                     class="dropdown-item">
                                                     <i class="fa-solid fa-pen-to-square"></i> {{ __('Edit') }}
                                                 </a>
                                                 <div class="dropdown-divider"></div>
-                                                <form action="{{ route('category.delete', $category->id) }}"
+                                                <form action="{{ route('subcategory.delete', $subcategory->id) }}"
                                                     method="POST">
                                                     <button type="submit" onclick="return confirm('Are you sure?')"
                                                         class="delete-user btn btn-link text-danger dropdown-item">
@@ -101,7 +101,7 @@
                     </table>
                 </div>
 
-                {!! gridFooter($categories, $itemsPerPage) !!}
+                {!! gridFooter($subcategories, $itemsPerPage) !!}
             @else
                 <div class="alert alert-info alert-styled-left" role="alert">
                     {{ __('Sorry! No data found to display') }}

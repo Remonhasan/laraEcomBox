@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Category;
+use App\Models\Admin\SubCategory;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class CategoryController extends Controller
+class SubCategoryController extends Controller
 {
     /**
-     * Display the list of Category.
+     * Display the list of Subcategory.
      *
      * @return void
      */
@@ -22,8 +23,8 @@ class CategoryController extends Controller
 
         $itemsPerPage = itemsPerPage();
 
-        $categoryModel = new Category();
-        $data['categoryModel'] = $categoryModel;
+        $subcategoryModel = new SubCategory();
+        $data['subcategoryModel'] = $subcategoryModel;
 
         $args = array(
             'items_per_page' => $itemsPerPage,
@@ -39,9 +40,9 @@ class CategoryController extends Controller
             )
         );
 
-        $data['categories'] = $categoryModel->getCategories($args);
+        $data['subcategories'] = $subcategoryModel->getSubcategories($args);
 
-        return view('admin.category.list', compact('itemsPerPage'))->with($data);
+        return view('admin.subcategory.list', compact('itemsPerPage'))->with($data);
     }
 
     /**
@@ -51,7 +52,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $data = [];
+        $data['categories'] = Category::all();
+        return view('admin.subcategory.create')->with($data);
     }
 
     /**
@@ -82,16 +85,16 @@ class CategoryController extends Controller
                 // Starting database transaction
                 DB::beginTransaction();
 
-                Category::create($inputs);
+                SubCategory::create($inputs);
 
                 DB::commit();
 
-                Toastr::success('Category Created Successfully', 'Ecommerce', ["positionClass" => "toast-top-center"]);
+                Toastr::success('Subcategory Created Successfully', 'Ecommerce', ["positionClass" => "toast-top-center"]);
 
                 return redirect()->back();
             }
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             // Rollback all transaction if error occurred
             DB::rollBack();
 
@@ -104,25 +107,27 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  mixed $categoryId
+     * @param  mixed $subcategoryId
      * @return void
      */
-    public function edit($categoryId)
+    public function edit($subcategoryId)
     {
         $data = [];
-        $data['category'] = Category::findorFail($categoryId);
-        return view('admin.category.edit')->with($data);
+        $data['categories'] = Category::all();
+        $data['subcategory'] = SubCategory::findorFail($subcategoryId);
+        return view('admin.subcategory.edit')->with($data);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  mixed $request
-     * @param  mixed $categoryId
+     * @param  mixed $subcategoryId
      * @return void
      */
-    public function update(Request $request, $categoryId)
+    public function update(Request $request, $subcategoryId)
     {
+
         try {
             $inputs = $request->all();
             $inputs['is_active'] = (int) $inputs['is_active'];
@@ -143,17 +148,17 @@ class CategoryController extends Controller
                 // Starting database transaction
                 DB::beginTransaction();
 
-                $category = Category::findorfail($categoryId);
-                $category->update($inputs);
+                $subcategory = SubCategory::findorfail($subcategoryId);
+                $subcategory->update($inputs);
 
                 DB::commit();
 
-                Toastr::success('Category Updated Successfully', 'Ecommerce', ["positionClass" => "toast-top-center"]);
+                Toastr::success('SubCategory Updated Successfully', 'Ecommerce', ["positionClass" => "toast-top-center"]);
 
                 return redirect()->back();
             }
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             // Rollback all transaction if error occurred.
             DB::rollBack();
 
@@ -166,16 +171,16 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  mixed $categoryId
+     * @param  mixed $subcategoryId
      * @return void
      */
-    public function delete($categoryId)
+    public function delete($subcategoryId)
     {
-        $category = Category::where('id', $categoryId)->first();
+        $subcategory = SubCategory::where('id', $subcategoryId)->first();
 
-        if ($category != null) {
+        if ($subcategory != null) {
 
-            $category->delete();
+            $subcategory->delete();
 
             Toastr::success('Category Deleted Successfully', 'Ecommerce', ["positionClass" => "toast-top-center"]);
 
@@ -186,4 +191,5 @@ class CategoryController extends Controller
             return back()->withErrors(__('Sorry, Please Try Again!'));
         }
     }
+
 }
