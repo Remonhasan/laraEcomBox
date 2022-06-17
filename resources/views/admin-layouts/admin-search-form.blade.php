@@ -10,19 +10,22 @@
  *
  * Variable $_filter_params needs to be passed from the list/grid page.
  */
-$_count = count( array_filter($_filter_params, 'strlen') );
+$_count = count(array_filter($_filter_params, 'strlen'));
 ?>
 
 <div class="card panel-theme panel-group-control filter-card mb-3">
     <div class="card-header bg-secondary text-white position-relative">
-        @if( $_count )
-            <button type="button" class="btn-clear-filter-outside bg-transparent border-0 rounded-pill text-white hide-if-no-js" data-toggle="tooltip" title="{{ __('Discard Filter') }}">
+        @if ($_count)
+            <button type="button"
+                class="btn-clear-filter-outside bg-transparent border-0 rounded-pill text-white hide-if-no-js"
+                data-toggle="tooltip" title="{{ __('Discard Filter') }}">
                 <i class="fa-solid fa-square-xmark"></i>
             </button>
         @endif
-        <button data-toggle="collapse" class="collapsed btn btn-link btn-sm btn-block p-0 text-white text-left" aria-expanded="false" data-target="#filter-list">
+        <button data-toggle="collapse" class="collapsed btn btn-link btn-sm btn-block p-0 text-white text-left"
+            aria-expanded="false" data-target="#filter-list">
             <i class="fa-solid fa-filter"></i> {{ __('Filter') }}
-            @if( $_count )
+            @if ($_count)
                 <span class="float-right mr-3">
                     {{ trans_choice('master.filters_are_active', $_count, ['count' => translateString($_count)]) }}
                 </span>
@@ -36,20 +39,21 @@ $_count = count( array_filter($_filter_params, 'strlen') );
 
                 <?php
                 /**
-                 * ------------------------------------------------------
-                 * PLACEHOLDER HOOK: admin_search_form_body
-                 * ------------------------------------------------------
-                 *
-                 * Pass the content to display inside the search form
-                 * from the list/grid page using the
-                 * @section('admin_search_form_body')
-                 * ------------------------------------------------------
-                 */
+                    * ------------------------------------------------------
+                     * PLACEHOLDER HOOK: admin_search_form_body
+                     * ------------------------------------------------------
+                    *
+                    * Pass the content to display inside the search form
+                    * from the list/grid page using the
+                    * @section('admin_search_form_body')
+                    * ------------------------------------------------------
+                     */
                 ?>
                 @yield('admin_search_form_body')
 
                 <input type="hidden" name="filter" class="d-none" value="yes">
-                <input type="hidden" name="ipp" class="d-none" value="{{ intval(Request::input('ipp')) }}"> {{-- Items per page if present --}}
+                <input type="hidden" name="ipp" class="d-none" value="{{ intval(Request::input('ipp')) }}">
+                {{-- Items per page if present --}}
 
                 <div class="border-top pt-2">
                     <div class="row">
