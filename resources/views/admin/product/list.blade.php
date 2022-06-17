@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        @if (!$allProducts ->isEmpty())
+        @if (!$products ->isEmpty())
         <div class="card mb-4">
             <table class="table table-hover table-striped mb-0">
                 <thead>
@@ -30,6 +30,7 @@
                         <th>{{ __('SL') }}</th>
                         <th>{{ __('Name (In English)') }}</th>
                         <th>{{ __('Name (In Bangla)') }}</th>
+                        <th>{{ __('Image') }}</th>
                         <th>{{ __('Is Active?') }}</th>
                         <th>{{ __('Created at') }}</th>
                         <th>{{ __('Action') }}</th>
@@ -40,13 +41,14 @@
                         <th>{{ __('SL') }}</th>
                         <th>{{ __('Name (In English)') }}</th>
                         <th>{{ __('Name (In Bangla)') }}</th>
+                        <th>{{ __('Image') }}</th>
                         <th>{{ __('Is Active?') }}</th>
                         <th>{{ __('Created at') }}</th>
                         <th>{{ __('Action') }}</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ($allProducts as $key => $product)
+                    @foreach ($products as $key => $product)
                     <tr>
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $product->name_en }}</td>
@@ -86,7 +88,7 @@
             </table>
         </div>
 
-        {!! gridFooter($allProducts, $itemsPerPage) !!}
+        {!! gridFooter($products, $itemsPerPage) !!}
         @else
         <div class="alert alert-info alert-styled-left" role="alert">
             {{ __('Sorry! No data found to display') }}

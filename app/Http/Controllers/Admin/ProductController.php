@@ -20,8 +20,29 @@ class ProductController extends Controller
     public function index ()
     {
         $data = [];
-        $data['allProducts'] = Product::all();
-        return view('admin.product.list')->with($data);
+
+        $itemsPerPage = itemsPerPage();
+
+        $productModel = new Product();
+        $data['productModel'] = $productModel;
+
+        $args = array(
+            'items_per_page' => $itemsPerPage,
+            'paginate' => true,
+        );
+
+        // Push Filter/Search Parameters.
+        $args = filterParams(
+            $args,
+            array(
+                'name' => 'name',
+                'is_active' => 'is_active',
+            )
+        );
+
+        $data['products'] = $productModel->getProducts($args);
+
+        return view('admin.product.list', compact('itemsPerPage'))->with($data);
     }
 
     public function create ()
