@@ -14,11 +14,10 @@
                     <i class="fa-solid fa-border-all mt-1 mr-2"></i>
                     <li class="breadcrumb-item">{{ __('Product') }}</li>
                     <li class="breadcrumb-item active"><a href="{{ route('product.list') }}">{{ __('List') }}</a></li>
-                    <li class="pull-right">
-                        <a href="{{ route('product.create') }}" type="button" class="btn-sm btn-primary"><i class="fas fa-plus me-1"></i>{{ __('Add') }}</a>
-
-                    </li>
                 </ol>
+            </div>
+            <div class="col-md-12 d-flex justify-content-end">
+                <a href="{{ route('product.create') }}" type="button" class="btn-sm btn-primary"><i class="fas fa-plus me-1"></i>{{ __('Add') }}</a>
             </div>
         </div>
 
