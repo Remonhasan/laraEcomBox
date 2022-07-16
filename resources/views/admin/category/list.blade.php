@@ -9,20 +9,13 @@
         <h1 class="mt-4">{{ __('Categories') }}</h1>
 
         <div class="row mb-2">
-            <div class="col-md-12">
                 <ol class="breadcrumb shadow">
                     <i class="fa-solid fa-border-all mt-1 mr-2"></i>
                     <li class="breadcrumb-item">{{ __('Category') }}</li>
                     <li class="breadcrumb-item active"><a href="{{ route('category.list') }}">{{ __('List') }}</a></li>
-                    <li class="pull-right">
-                        <a href="{{ route('category.create') }}" type="button" class="btn-sm btn-primary"><i class="fas fa-plus me-1"></i>{{ __('Add') }}</a>
-
-                    </li>
                 </ol>
-            </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <a href="{{ route('category.create') }}" type="button" class="btn-sm btn-primary"><i
-                            class="fas fa-plus me-1"></i>{{ __('Add') }}</a>
+                <div class="col-md-12 d-flex justify-content-end">
+                    <a href="{{ route('category.create') }}" type="button" class="btn-sm btn-primary"><i class="fas fa-plus me-1"></i>{{ __('Add') }}</a>
                 </div>
             </div>
 
