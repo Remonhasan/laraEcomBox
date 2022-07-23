@@ -7,6 +7,10 @@
                 Dashboard
             </a>
             <div class="sb-sidenav-menu-heading">Interface</div>
+            <a class="nav-link" href="{{ route('slider.list') }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div> 
+                {{ __('Slider') }}
+            </a>
             <a class="nav-link" href="{{ route('category.list') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div> 
                 {{ __('Category') }}

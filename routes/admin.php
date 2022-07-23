@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\SubCategoryController;
-use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 
 // Admin Routes Start
 
@@ -35,6 +37,18 @@ Route::prefix(Request::segment(1) . config('app.admin_route_prefix'))->middlewar
         // Logout
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
+         // SLIDER ROUTE START
+         Route::prefix('slider')->group(function () {
+            Route::get('/list', [SliderController::class, 'index'])->name('slider.list');
+            Route::get('/create', [SliderController::class, 'create'])->name('slider.create');
+            Route::post('/store', [SliderController::class, 'store'])->name('slider.store');
+            Route::get('/edit/{sliderId?}', [SliderController::class, 'edit'])->name('slider.edit');
+            Route::put('/update/{sliderId?}', [SliderController::class, 'update'])->name('slider.update');
+            Route::delete('/delete/{sliderId?}', [SliderController::class, 'delete'])->name('slider.delete');
+        });
+        // SLIDER ROUTE END
+
+        // CATEGORY ROUTE START
         Route::prefix('category')->group(function () {
             Route::get('/list', [CategoryController::class, 'index'])->name('category.list');
             Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
@@ -43,7 +57,9 @@ Route::prefix(Request::segment(1) . config('app.admin_route_prefix'))->middlewar
             Route::put('/update/{categoryId?}', [CategoryController::class, 'update'])->name('category.update');
             Route::delete('/delete/{categoryId?}', [CategoryController::class, 'delete'])->name('category.delete');
         });
+        // CATEGORY ROUTE END
 
+        // SUBCATEGORY ROUTE START
         Route::prefix('subcategory')->group(function () {
             Route::get('/list', [SubCategoryController::class, 'index'])->name('subcategory.list');
             Route::get('/create', [SubCategoryController::class, 'create'])->name('subcategory.create');
@@ -52,7 +68,9 @@ Route::prefix(Request::segment(1) . config('app.admin_route_prefix'))->middlewar
             Route::put('/update/{subcategoryId?}', [SubCategoryController::class, 'update'])->name('subcategory.update');
             Route::delete('/delete/{subcategoryId?}', [SubCategoryController::class, 'delete'])->name('subcategory.delete');
         });
+        // SUBCATEGORY ROUTE END
 
+        // PROFUCT ROUTE START
         Route::prefix('product')->group(function () {
             Route::get('/list', [ProductController::class, 'index'])->name('product.list');
             Route::get('/create', [ProductController::class, 'create'])->name('product.create');
@@ -61,6 +79,7 @@ Route::prefix(Request::segment(1) . config('app.admin_route_prefix'))->middlewar
             Route::put('/update/{productId?}', [ProductController::class, 'update'])->name('product.update');
             Route::delete('/delete/{productId?}', [ProductController::class, 'delete'])->name('product.delete');
         });
+        // PROFUCT ROUTE START
     });
 
 // Admin Routes End
